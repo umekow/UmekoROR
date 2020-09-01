@@ -30,11 +30,7 @@ end
 # Get area code based on given hash and key
 def get_area_code(somehash, key)
 	
-	code = somehash[key]
-	if code.nil? 
-		puts "You must enter one of the listed cities."
-	end
-
+	return somehash[key]
 	
 end
  
@@ -44,6 +40,10 @@ loop do
 	puts "Here is the list of cities."
 	get_city_names(dial_book)
 	city = get_city
+	if !dial_book.include?(city)
+		puts "You must enter one of the listed cities."
+		next
+	end
 	area_code = get_area_code(dial_book, city)
 	puts
 	puts "#{area_code} is the area code for #{city}."
