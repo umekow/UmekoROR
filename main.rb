@@ -1,1 +1,17 @@
-address = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+require_relative 'crud'
+
+# $LOAD_PATH << "."
+# require 'crud'
+
+
+users = [
+	{username: "umekow", password:  "1234umeko"},
+
+	{username: "tomtom90", password:  "mot09"},
+
+	{username: "marym", password:  "wwjd"}
+]
+
+hashed_users = Crud.create_secure_users(users)
+
+puts hashed_users
